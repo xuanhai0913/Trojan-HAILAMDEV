@@ -1,0 +1,46 @@
+# Build artifacts
+bin/
+build/
+*.exe
+*_test.go
+
+# Certificates
+certs/
+*.pem
+*.key
+*.crt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Dependencies
+vendor/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Coverage
+coverage.out
+coverage.html
+
+# Profiles
+*.prof
+*.pprof

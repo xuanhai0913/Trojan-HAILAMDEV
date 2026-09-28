@@ -1,0 +1,26 @@
+# Agent Dockerfile
+FROM golang:1.21-alpine AS builder
+
+RUN apk add --no-cache git make
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+
+RUN make build-agent
+
+FROM alpine:3.18
+
+RUN apk add --no-cache ca-certificates
+
+WORKDIR /app
+
+COPY --from=builder /app/bin/agent .
+
+ENV C2_HOST=host.docker.internal
+ENV C2_PORT=8443
+
+CMD ["./agent"]
